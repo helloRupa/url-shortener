@@ -1,0 +1,59 @@
+#!/usr/bin/env ruby
+
+def user_by_email
+    print "Enter email: > "
+    email = gets.chomp
+    User.find_by_email(email)
+end
+
+def handle_bad_request
+    puts "Sorry, your data didn't match any entries. Goodbye!"
+    exit
+end
+
+def visit_request
+    print "Would you like to visit an existing URL or make a new one? Enter 1 for existing, 2 for new: > "
+    gets.chomp.to_i
+end
+
+def ask_for_url
+    print "Enter an existing shortened URL: > "
+    ShortenedUrl.find_by_short_url(gets.chomp)
+end
+
+def launch_url(url)
+    puts "Launching #{url}..."
+    Launchy.open(url)
+end
+
+def record_visit(user_obj, url_obj)
+    Visit.record_visit!(user_obj, url_obj)
+end
+
+def visit_existing_url(user)
+    url_obj = ask_for_url
+    handle_bad_request if url_obj.nil?
+    launch_url(url_obj.long_url)
+    record_visit(user, url_obj)
+end
+
+def make_new_url(user)
+    print "Enter the long URL: > "
+    url = gets.chomp
+    url_obj = ShortenedUrl.generate_shortened_url(user, url)
+    puts "The short URL is #{url_obj.short_url}"
+    launch_url(url)
+    record_visit(user, url_obj)
+end
+
+user = user_by_email
+handle_bad_request if user.nil?
+
+puts
+
+visit_type = visit_request
+handle_bad_request unless [1, 2].include?(visit_type)
+
+puts
+
+visit_type == 1 ? visit_existing_url(user) : make_new_url(user)
