@@ -447,3 +447,199 @@ Migrating to CreateTaggings (20190409220520)
   ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4762635147840476445)[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to RenameTopicsColumn (20190409221725)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (45.6ms)[0m  [1m[35mALTER TABLE "tag_topics" RENAME COLUMN "topics" TO "topic"[0m
+  ↳ db/migrate/20190409221725_rename_topics_column.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190409221725"]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4762635147840476445)[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "news"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.7ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "news"], ["created_at", "2019-04-09 22:41:18.928234"], ["updated_at", "2019-04-09 22:41:18.928234"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "comedy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.5ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "comedy"], ["created_at", "2019-04-09 22:41:18.974022"], ["updated_at", "2019-04-09 22:41:18.974022"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "biography"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.3ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "biography"], ["created_at", "2019-04-09 22:41:18.978404"], ["updated_at", "2019-04-09 22:41:18.978404"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "self-improvement"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.3ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "self-improvement"], ["created_at", "2019-04-09 22:41:18.981492"], ["updated_at", "2019-04-09 22:41:18.981492"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "technology"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.3ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "technology"], ["created_at", "2019-04-09 22:41:18.984651"], ["updated_at", "2019-04-09 22:41:18.984651"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "search"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.4ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "search"], ["created_at", "2019-04-09 22:41:18.987762"], ["updated_at", "2019-04-09 22:41:18.987762"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."topic" = $1 LIMIT $2[0m  [["topic", "diy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mTagTopic Create (0.3ms)[0m  [1m[32mINSERT INTO "tag_topics" ("topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["topic", "diy"], ["created_at", "2019-04-09 22:41:18.992246"], ["updated_at", "2019-04-09 22:41:18.992246"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mTagging Create (1.0ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 6], ["link_id", 1], ["created_at", "2019-04-09 22:41:19.040318"], ["updated_at", "2019-04-09 22:41:19.040318"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTagTopic Load (0.5ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mTagging Create (0.4ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 1], ["link_id", 1], ["created_at", "2019-04-09 22:41:19.088447"], ["updated_at", "2019-04-09 22:41:19.088447"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mTagging Create (0.3ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 3], ["link_id", 2], ["created_at", "2019-04-09 22:41:19.094508"], ["updated_at", "2019-04-09 22:41:19.094508"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mTagging Create (0.3ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 4], ["link_id", 1], ["created_at", "2019-04-09 22:41:19.099938"], ["updated_at", "2019-04-09 22:41:19.099938"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTagTopic Load (0.5ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTagging Load (0.6ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTagTopic Load (0.5ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" ORDER BY "tag_topics"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagging Load (0.3ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1 LIMIT $2[0m  [["tag_id", 1], ["LIMIT", 11]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1 LIMIT $2[0m  [["tag_id", 6], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTagging Create (0.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 6], ["link_id", 3], ["created_at", "2019-04-09 22:49:32.568029"], ["updated_at", "2019-04-09 22:49:32.568029"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1 LIMIT $2[0m  [["tag_id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1 LIMIT $2[0m  [["tag_id", 6], ["LIMIT", 11]]
+  [1m[36mTagTopic Load (0.5ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.6ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1 LIMIT $2[0m  [["tag_id", 6], ["LIMIT", 11]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" ORDER BY "taggings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.4ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" ORDER BY "taggings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."link_id" = $1 LIMIT $2[0m  [["link_id", 1], ["LIMIT", 11]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.6ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" INNER JOIN "taggings" ON "tag_topics"."id" = "taggings"."tag_id" WHERE "taggings"."link_id" = $1 LIMIT $2[0m  [["link_id", 1], ["LIMIT", 11]]
+  [1m[36mTagTopic Load (0.4ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" ORDER BY "tag_topics"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagging Load (0.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.6ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 11]]
+  [1m[36mTagTopic Load (0.5ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.4ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.6ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.9ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1 ORDER BY "num_clicks" ASC LIMIT $2[0m  [["tag_id", 6], ["LIMIT", 11]]
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.5ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (41.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "https://g.com"]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "dYfySaQZv_211eQddPsfYw"]]
+  [1m[36mTagTopic Load (0.4ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "https://g.com"]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "dYfySaQZv_211eQddPsfYw"]]
+  [1m[36mTagTopic Load (0.6ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "https://g.com"]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "dYfySaQZv_211eQddPsfYw"]]
+  [1m[36mTagTopic Load (0.3ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "https://g.com"]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "dYfySaQZv_211eQddPsfYw"]]
+  [1m[36mTagTopic Load (0.5ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "https://g.com"]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."short_url" = $1[0m  [["short_url", "dYfySaQZv_211eQddPsfYw"]]
