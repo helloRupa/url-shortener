@@ -1,6 +1,4 @@
 class Tagging < ApplicationRecord
-  validates :tag_id, :link_id, presence: true
-
   belongs_to :tag_topic,
     class_name: 'TagTopic',
     primary_key: :id,
